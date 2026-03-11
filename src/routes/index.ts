@@ -1,17 +1,14 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import mustache from 'mustache-express';
-import path from 'path';
-import mainRouter from './routes/index';
+import { Router } from 'express';
+import * as PageController from '../controllers/pageController';
+import * as SearchController from '../controllers/searchController';
 
-dotenv.config();
+const router = Router();
 
-const server = express();
+router.get('/', PageController.home);
+router.get('/dogs', PageController.dogs);
+router.get('/cats', PageController.cats);
+router.get('/fishes', PageController.fishes);
 
-server.set('view engine', 'mustache');
-server.set('views', path.join(__dirname, 'views'));
-server.engine('mustache', mustache());
+router.get('/search', SearchController.search);
 
-server.use(express.static(path.join(__dirname, '../public')));
-
-server.use(mainRouter);
+export default router;
