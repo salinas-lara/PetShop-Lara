@@ -13,4 +13,4 @@ principalmente de nível técnico - **IFSP**
 
 `npm run dev`
 
-Autor: **Lara Salinas**
+Autor: **Denny Paulista Azevedo Filho**
